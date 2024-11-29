@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "mainmenu-screenshot-helper",
+	"version": "${version}",
+	"name": "Mainmenu Screenshot Helper",
+	"description": "Make mainmenu customizable for the convenience of make screenshots for wiki",
+	"authors": [
+		"BoredYukolin"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC BY-NC-SA 3.0",
+	"icon": "assets/mainmenu-screenshot-helper/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"top.yukolin.MainmenuScreenshotHelper"
+		]
+	},
+	"mixins": [
+		"mainmenu-screenshot-helper.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
