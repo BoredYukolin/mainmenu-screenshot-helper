@@ -12,10 +12,10 @@ This mod is for the convenience of making a standard screenshot of Minecraft mai
 - Write what you want to show as the version info in the file.
 
 ### Examples
-If you want the shot for a release version, write as **Minecraft <version>**, for example:
+If you want the shot for a release version, write as **Minecraft \<version\>**, for example:
 
     Minecraft 1.21.4
 
-If you want the shot for a snapshot version (including pre-releases and release candidates), write as **Minecraft <version>/snapshot**, for example:
+If you want the shot for a snapshot version (including pre-releases and release candidates), write as **Minecraft \<version\>/snapshot**, for example:
 
     Minecraft 1.21.4 Release Candidate 3/snapshot
