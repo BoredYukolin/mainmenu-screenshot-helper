@@ -25,10 +25,8 @@ public class MainmenuScreenshotHelper implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Minecraft.getInstance().options.panoramaSpeed().set(0d);
 		try {
-			if (!CONFIG_FILE.exists()) loadDefaultConfig();
-			loadConfig();
+			if (CONFIG_FILE.exists()) loadConfig();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -36,10 +34,5 @@ public class MainmenuScreenshotHelper implements ModInitializer {
 	
 	private void loadConfig() throws IOException {
 		VERSION_TEXT = FileUtils.readFileToString(CONFIG_FILE, Charset.defaultCharset());
-	}
-	
-	private void loadDefaultConfig() throws IOException {
-		CONFIG_FILE.createNewFile();
-		FileUtils.writeStringToFile(CONFIG_FILE, "Configure the text here in \"version-text.txt\" file!", Charset.defaultCharset());
 	}
 }
