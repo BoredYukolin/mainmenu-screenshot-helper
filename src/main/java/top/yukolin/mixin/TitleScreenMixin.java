@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,9 +18,10 @@ import top.yukolin.MainmenuScreenshotHelper;
 public abstract class TitleScreenMixin {
     
     @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/ModCheck;shouldReportAsModified()Z"))
-    private void getCurrentVersion(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci,
-                                   @Local LocalRef<String> string) {
-        string.set(MainmenuScreenshotHelper.VERSION_TEXT);
+    private void render(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci,
+                        @Local LocalRef<String> string) {
+        Minecraft.getInstance().options.panoramaSpeed().set(0d);
+        if (MainmenuScreenshotHelper.VERSION_TEXT != null) string.set(MainmenuScreenshotHelper.VERSION_TEXT);
     }
     
 }
