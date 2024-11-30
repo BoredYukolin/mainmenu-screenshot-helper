@@ -3,9 +3,13 @@
 	"package": "top.yukolin.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ModCheckMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
-	}
+	},
+	"client": [
+		"RealmsNotificationScreenMixin",
+		"TitleScreenMixin"
+	]
 }

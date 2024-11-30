@@ -2,8 +2,16 @@ package top.yukolin;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.SharedConstants;
+import net.minecraft.client.Minecraft;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 public class MainmenuScreenshotHelper implements ModInitializer {
 	public static final String MOD_ID = "mainmenu-screenshot-helper";
@@ -12,13 +20,27 @@ public class MainmenuScreenshotHelper implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(),
+			"version-text.txt");
+	public static String VERSION_TEXT = "";
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
-		LOGGER.info("Hello Fabric world!");
+		Minecraft.getInstance().options.panoramaSpeed().set(0d);
+		try {
+			if (!CONFIG_FILE.exists()) loadDefaultConfig();
+			loadConfig();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	private void loadConfig() throws IOException {
+		VERSION_TEXT = FileUtils.readFileToString(CONFIG_FILE, Charset.defaultCharset());
+	}
+	
+	private void loadDefaultConfig() throws IOException {
+		CONFIG_FILE.createNewFile();
+		FileUtils.writeStringToFile(CONFIG_FILE, "Configure the text here in \"version-text.txt\" file!", Charset.defaultCharset());
 	}
 }

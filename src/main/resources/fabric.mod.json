@@ -8,8 +8,7 @@
 		"BoredYukolin"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/BoredYukolin/mainmenu-screenshot-helper"
 	},
 	"license": "CC BY-NC-SA 3.0",
 	"icon": "assets/mainmenu-screenshot-helper/icon.png",
