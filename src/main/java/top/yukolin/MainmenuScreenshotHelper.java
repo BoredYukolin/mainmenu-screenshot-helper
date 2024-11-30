@@ -3,7 +3,6 @@ package top.yukolin;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
